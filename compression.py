@@ -3,7 +3,7 @@ from dahuffman import HuffmanCodec
 def get_codec():
     """Generate the codec for encoding and decoding based on random sentence
        Args: None
-       Returns: the codec
+       Output: the codec
     """
     codec = HuffmanCodec.from_data("the quick brown fox jumps over the lazy dog")
     return codec
@@ -11,21 +11,21 @@ def get_codec():
 def encode(word):
     """return Huffman encoded binary for a given word
        Args: word (String)
-       Returns: (binary string) encoded representation
+       Output: (binary string) encoded representation
     """
     return get_codec().encode(word)
 
 def decode(compressed):
     """decodes a Huffman encoded binary string back into its original word
        Args: compressed (binary string) 
-       Returns: (string) original word
+       Output: (string) original word
     """
     return get_codec().decode(compressed)
 
 def compress(list_input):
     """return a dict of original word as key and Huffman encoded equivalent for a given list
        Args: list_input (List): list of words to encode
-       Returns: (dict) original word is key and encoded is value
+       Output: (dict) status: True or False and data (dict): original word is key and encoded               is value or error if False with error reason
     """
     # ensure that input is a List as expected
     if type(list_input) is not list:
