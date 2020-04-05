@@ -26,7 +26,6 @@ class CompressService:
            Output: (string) original word
         """
         encoded = compressed.encode('latin1')
-        print(encoded)
         return self.get_codec().decode(encoded)
 
     @rpc
