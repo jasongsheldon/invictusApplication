@@ -1,5 +1,8 @@
 from squares import square_of_odds
 
+def test_islist():
+    """Test that will not break if it is not a list"""
+    assert square_of_odds({'a': 3}).get('status') == False
 
 def test_invalid_data():
     """Test to see if there is invalid (non integer) data in the list

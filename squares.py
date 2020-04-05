@@ -12,6 +12,9 @@ def test_is_integer(test_item):
         return False
 
 def square_of_odds(integers_input):
+    # ensure that input is a List as expected
+    if type(integers_input) is not list:
+        return {"status": False, "error": "Input is not a list"}
     # create a new list of only integers in the provided list
     # and check if the length of the inout list matches this
     # if it does not match it means there were non integers in the list
@@ -28,7 +31,3 @@ def square_of_odds(integers_input):
             for item in odds_list:
                 total = total + item**2
             return {"status": True, "data": total}
-
-if __name__ == "__main__":
-    print(square_of_odds([1, 3, 12, 13, 14, 19, 20]))
-    
