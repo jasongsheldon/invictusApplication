@@ -1,7 +1,7 @@
 from nameko.standalone.rpc import ClusterRpcProxy
 
 config = {
-    'AMQP_URI': "pyamqp://guest:guest@localhost"
+    'AMQP_URI': "pyamqp://guest:guest@rabbitmq"
 }
 
 
@@ -27,4 +27,4 @@ def test_compress_as_expected():
 def test_decode():
     """Positive test to see that it decodes as expected"""
     with ClusterRpcProxy(config) as cluster_rpc:
-        assert cluster_rpc.compress_service.decode('¸ñ') == 'dog'
+        assert cluster_rpc.compress_service.decode('¸ñ').get('data') == 'dog'

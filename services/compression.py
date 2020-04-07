@@ -21,6 +21,14 @@ class CompressService:
 
     @rpc
     def decode(self, compressed):
+        """rpc call to wrap inner_decode into dict return for service consistency
+           Args: compressed (binary string)
+           Output: (dict) status: True or False and data (string): original word
+        """
+        word = self.inner_decode(compressed)
+        return {"status": True, "data": word}
+
+    def inner_decode(self, compressed):
         """decodes a Huffman encoded binary string back into its original word
            Args: compressed (binary string)
            Output: (string) original word

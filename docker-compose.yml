@@ -1,0 +1,11 @@
+version: '2'
+services:
+  invictus-services:
+    build: ./services
+    restart: always
+    volumes:
+     - .:/services/code
+    depends_on:
+     - rabbitmq
+  rabbitmq:
+    image: "rabbitmq"
